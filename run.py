@@ -1,5 +1,6 @@
 from random import randint
 
+
 class GameBoard:
     def __init__(self, board):
         self.board = board
@@ -16,7 +17,6 @@ class GameBoard:
         for row in self.board:
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
-
 
 
 class Battleship:
@@ -44,7 +44,6 @@ class Battleship:
             while v_column not in "ABCDE":
                 print('Invalid choice, please select a valid column')
                 v_column = input("Enter column postion A-E for a battleship: ").upper()
-                
             return int(h_row) - 1, GameBoard.convert_letters_to_numbers()[v_column]
         except ValueError and KeyError:
             print("Your input is not valid")
@@ -71,12 +70,17 @@ def RunGame():
     # Start 5 turns
     turns = 10
     while turns > 0:
+        print("-------------------------------------")
+        print("Welcome to Battling Ships Game")
+        print("Board size: 5. Number of hidden ships: 3")
+        print("Top left corner is row: 1, column: A")
+        print("-------------------------------------")
         GameBoard.print_board(players_board)
         # get player input
         player_h_row, player_v_column = Battleship.get_player_input(object)
         # check if guess already exist
         while players_board.board[player_h_row][player_v_column] == "-" or players_board.board[player_h_row][player_v_column] == "X":
-            print("You have already guessed that ship position") 
+            print("You have already guessed that ship position")
             player_h_row, player_v_column = Battleship.get_player_input(object)
         # check for hit or miss
         if computer_board.board[player_h_row][player_v_column] == "X":
@@ -96,6 +100,7 @@ def RunGame():
                 print("You have no turns left")
                 GameBoard.print_board(players_board)
                 break
+
 
 if __name__ == '__main__':
     RunGame()
