@@ -10,7 +10,7 @@ The Battling Ships game starts and the user is presented with an empty 5-rows x 
 
 The user is asked to make a guess of the row number and column letter which together make up the coordinate of a targeted ship position.
 
-If the user guess wrongly it is marked as a "-" on the players board and if the guess is correct it is marked as a "X" on the board.
+If the user guesses wrongly it is marked as a "-" on the players board and if the guess is correct it is marked as a "X" on the board.
 
 The user has the 10 possible turn to make 3 correct guesses and if he achieves that the game is won.
 
@@ -19,7 +19,7 @@ The user has the 10 possible turn to make 3 correct guesses and if he achieves t
 - Creation of 2 game boards
     - A player's guess board which is visible and for the user to input guess data.
     - A computer board which is hidden and contains 3 hidden battleships which the user intends to target.
--  Allows a single user to play against computer
+-  Allows a single user to play against the computer
 - The user can pass on input data 
 - The user receives useful information regarding the game stutus, for example the turns remaining and mention of targeted ships
 - The game offers a user the option of a maximum of 10 turns in which to make a successful guess.
@@ -32,6 +32,11 @@ The user has the 10 possible turn to make 3 correct guesses and if he achieves t
 - Enable to user to determine the size of the game board and number of ships
 
 ## Data Model
+For this project I used two classes, the GameBoard class and the Battleship class as models.
+
+The GameBoard class has a constructor which initiates the players board and the hidden computer board for the game. In addition the Gameboard class also has two objects, an object which converts letter values entered by the user to numbers and a print_board method which displays a players board for the user.
+
+The Battleship class has various methods that help to organize the game, a method creates the hidden battleships in the computer board, another method is used to get the guesses made by the user and a method is used to keep check if the user has eliminated all the hidden ships in order to win the game.
 
 ## Testing
 I did the following manual tests on this project:
@@ -41,8 +46,10 @@ I did the following manual tests on this project:
 
 ### Bugs
 #### Solved Bugs
+- I rewrote part of the syntax to make them shorter in order to eliminate the problem of error: line too long
 
-### Remaining Bugs
+### Remaining 
+- No bugs remaining
 
 ### Validator Testing
 - CI Python Linter

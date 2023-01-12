@@ -6,7 +6,7 @@ class GameBoard:
         self.board = board
 
     # Convert letters to numbers
-    def convert_letters_to_numbers():
+    def fix_letters_to_numbers(self):
         letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
         return letters_to_numbers
 
@@ -35,16 +35,16 @@ class Battleship:
     # Get player's guess input
     def get_player_input(self):
         try:
-            h_row = input("Enter row position 1-5 for a battleship: ")
+            h_row = input("Enter row value 1-5: ")
             while h_row not in "12345":
-                print('Invalid choice, please select a valid row')
-                h_row = input("Enter row position 1-5 for a battleship: ")
+                print('Invalid choice, please enter a valid row number')
+                h_row = input("Enter row value 1-5: ")
 
-            v_column = input("Enter column postion A-E for a battleship: ").upper()
+            v_column = input("Enter column value A-E: ").upper()
             while v_column not in "ABCDE":
-                print('Invalid choice, please select a valid column')
-                v_column = input("Enter column postion A-E for a battleship: ").upper()
-            return int(h_row) - 1, GameBoard.convert_letters_to_numbers()[v_column]
+                print('Invalid choice, please enter a valid column letter')
+                v_column = input("Enter column value A-E: ").upper()
+            return int(h_row) - 1, GameBoard.fix_letters_to_numbers()[v_column]
         except ValueError and KeyError:
             print("Your input is not valid")
             return self.get_player_input()
@@ -78,9 +78,12 @@ def RunGame():
         GameBoard.print_board(players_board)
         # get player input
         player_h_row, player_v_column = Battleship.get_player_input(object)
+
         # check if guess already exist
-        while players_board.board[player_h_row][player_v_column] == "-" or players_board.board[player_h_row][player_v_column] == "X":
-            print("You have already guessed that ship position")
+        p = players_board.board[player_h_row][player_v_column] == "-"
+        c = players_board.board[player_h_row][player_v_column] == "X"
+        while p or c:
+            print("You have already guessed that ship positions2")
             player_h_row, player_v_column = Battleship.get_player_input(object)
         # check for hit or miss
         if computer_board.board[player_h_row][player_v_column] == "X":
