@@ -4,7 +4,7 @@ Battling Ships is a single player python-based terminal game in which the user g
 
 This is a simple version of the paper board Battleship Game which one can read read about in [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game))
 
-
+![Battling Ships](assets/BattlingShips.png)
 ## How to play the game
 The Battling Ships game starts and the user is presented with an empty 5-rows x 5-column players grid board. 
 
