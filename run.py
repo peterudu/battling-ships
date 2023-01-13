@@ -5,12 +5,17 @@ class GameBoard:
     def __init__(self, board):
         self.board = board
 
-    # Convert letters to numbers
-    def fix_letters_to_numbers(self):
+    def fix_letters_to_numbers():
+        """
+        Convert letters entered by users to numbers
+        """
         letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
         return letters_to_numbers
 
     def print_board(self):
+        """
+        Prints the 5 grid game board for the user
+        """
         print("  A B C D E")
         print("  +-+-+-+-+")
         row_number = 1
@@ -23,8 +28,10 @@ class Battleship:
     def __init__(self, board):
         self.board = board
 
-    # Create 3 hidden battleships in computer board
     def create_battleship(self):
+        """
+        Randomly create and position 3 hidden battleships in computer board
+        """
         for i in range(3):
             self.h_row, self.v_column = randint(0, 4), randint(0, 4)
             while self.board[self.h_row][self.v_column] == "X":
@@ -32,8 +39,10 @@ class Battleship:
             self.board[self.h_row][self.v_column] = "X"
         return self.board
 
-    # Get player's guess input
     def get_player_input(self):
+        """
+        Get player's guess row and column input data
+        """
         try:
             h_row = input("Enter row value 1-5: ")
             while h_row not in "12345":
@@ -49,8 +58,10 @@ class Battleship:
             print("Your input is not valid")
             return self.get_player_input()
 
-    # Number of  battleships shot successfully
     def count_eliminated_ships(self):
+        """
+        Tracks and counts the number of ships guessed successfully
+        """
         eliminated_ships = 0
         for row in self.board:
             for column in row:
@@ -61,19 +72,23 @@ class Battleship:
 
 def RunGame():
     """
-    Starts a new game. Displays the game board and prompts the user
-    to guess the cordinates for the position of target battleship
+    Starts a new game with 10 turns for the user.
+    Runs the program functions which starts a new game
+    with 10 turns, which display the players game board,
+    prompts the user to make a guess of the cordinates of hidden ship.
+    Displays game status to user
     """
     computer_board = GameBoard([[" "] * 5 for i in range(5)])
     players_board = GameBoard([[" "] * 5 for i in range(5)])
     Battleship.create_battleship(computer_board)
-    # Start 5 turns
+    # starts 10 turns
     turns = 10
     while turns > 0:
         print("-------------------------------------")
         print("Welcome to Battling Ships Game")
         print("Board size: 5. Number of hidden ships: 3")
         print("Top left corner is row: 1, column: A")
+        print(f"You have {turns} turns remaining")
         print("-------------------------------------")
         GameBoard.print_board(players_board)
         # get player input
@@ -100,7 +115,7 @@ def RunGame():
             turns -= 1
             print(f"You have {turns} turns remaining")
             if turns == 0:
-                print("You have no turns left")
+                print("You have no turns left - Game Over")
                 GameBoard.print_board(players_board)
                 break
 

@@ -29,8 +29,8 @@ The user has the 10 possible turn to make 3 correct guesses and if he achieves t
     - The user's input data is checked so that he does not repeat the same coordinate values. If this happens a notification is displayed
 
 ### Future Features
-- Enable to user to determine the size of the game board and number of ships
-
+- Allow the user to determine the size of the game board 
+- Allow the user to determine the number of hidden ships
 ## Data Model
 For this project I used two classes, the GameBoard class and the Battleship class as models.
 
