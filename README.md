@@ -55,6 +55,7 @@ I did the following manual tests on this project:
 - CI Python Linter
     - No errors were returned
 
+![CI Python Linter](assets/ci_python_linter.png)
 ## Deployment
 This project was deployed using Code Institute mock terminal for Heroku.
 - Steps for the deployment include:
