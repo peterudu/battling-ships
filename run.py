@@ -47,9 +47,9 @@ class Battleship:
             h_row = input("Enter row value 1-5: ")
             while h_row not in "12345":
                 print('Invalid choice, please enter a valid row number')
-                h_row = input("Enter row value 1-5: ")
+                h_row = input("Enter row value 1-5:\n")
 
-            v_column = input("Enter column value A-E: ").upper()
+            v_column = input("Enter column value A-E:\n").upper()
             while v_column not in "ABCDE":
                 print('Invalid choice, please enter a valid column letter')
                 v_column = input("Enter column value A-E: ").upper()
