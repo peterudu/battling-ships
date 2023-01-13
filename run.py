@@ -87,6 +87,7 @@ def RunGame():
         print("-------------------------------------")
         print("Welcome to Battling Ships Game")
         print("Board size: 5. Number of hidden ships: 3")
+        print("Correct Guess: X, Miss: -")
         print("Top left corner is row: 1, column: A")
         print(f"You have {turns} turns remaining")
         print("-------------------------------------")
@@ -98,7 +99,7 @@ def RunGame():
         p = players_board.board[player_h_row][player_v_column] == "-"
         c = players_board.board[player_h_row][player_v_column] == "X"
         while p or c:
-            print("You have already guessed that ship positions2")
+            print("You have already guessed that ship positions")
             player_h_row, player_v_column = Battleship.get_player_input(object)
         # check for hit or miss
         if computer_board.board[player_h_row][player_v_column] == "X":
